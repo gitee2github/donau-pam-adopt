@@ -135,7 +135,7 @@ void SubProcessCmd(int ePorts[2], const pid_t pid)
     if (access(lsof, R_OK | X_OK) != 0) {
         lsof = g_sys_lsofPath;
     }
-    int errorNo = sprintf(cmdLine, "timeout %d %s -p %ld 2>/dev/null | grep TCP | awk '{print $9}'", CMD_TIMEOUT_SEC, lsof, pid);
+    int errorNo = sprintf(cmdLine, "timeout %d %s -p %d 2>/dev/null | grep TCP | awk '{print $9}'", CMD_TIMEOUT_SEC, lsof, pid);
     if (errorNo == -1) {
         syslog(LOG_ERR, "[pam_donau_adopt][error]combination cmd lsof failed");
         return;

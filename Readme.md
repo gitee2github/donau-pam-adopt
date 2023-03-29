@@ -40,14 +40,15 @@
 
 ### 编译报错
 编译构建时出现如下报错
->> `fatal error: security/pam_modules.h: No such file or directory`
+>> `fatal error: security/pam_xxx.h: No such file or directory`
 
 __解决方法__
-报错表示编译环境缺少PAM开发依赖组件，需要安装 `libpam` 的开发组件包，在Debian、Ubuntu 或 Linux Mint系统上
->> `sudo apt-get install libpam0g-dev`
+报错表示编译环境缺少PAM开发依赖组件，需要安装 `libpam` 的开发组件包
+在Ubuntu系统上
+>> `apt-get install libpam0g-dev`
 
-在CentOS、Fedora 或 RHEL系统上
->> `sudo yum install gcc pam-devel`
+在CentOS、OpenEuler、Red Hat或麒麟系统上
+>> `yum install pam-devel`
 
 检查缺失的头文件是否安装到 `/usr/include/security` 路径下
 >> `ls -a /usr/include/security`
