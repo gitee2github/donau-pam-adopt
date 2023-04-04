@@ -12,29 +12,19 @@
 
 （2）方法2：
 >>手工拷贝复制 pam_donau_adopt.so 到 `/lib64/security/` 或 `/lib/security/` 或当前操作系统 pam security 指定的文件目录下
+>>手工修改目标目录下 pam_donau_adopt.so 权限为500
+>>手工修改目标目录下 pam_donau_adopt.so 属主为root，属组为root
 
 ### 配置
 （1）使用 vi 命令打开sshd配置文件
 >> `vi /etc/pam.d/sshd`
 
 （2）添加如下内容到文件中
->> `-account    sufficient    pam_donau_adopt.so log_level=debug donau_agent_socket=/tmp/batch/4230533106/.socket/agent.socket`
+>> `-account    required    pam_donau_adopt.so log_level=debug donau_agent_socket=/tmp/batch/4230533106/.socket/agent.socket`
 
  *说明：*
 >*- log_level 日志级别，debug级别会将所有日志记录，其他级别只会记录错误日志信息。日志记录在/var/log/secure和/var/log/message*
 >*- donau_agent_socket Donau Agent服务的socket文件路径，需要根据当前节点实际环境配置*
-
-### 配置白名单
-默认仅允许有作业运行的用户ssh到此节点，若您希望允许其他用户无作业时访问，需要配置白名单
-（1）使用 vi 命令打开sshd配置文件
->> `vi /etc/pam.d/sshd`
-
-（2）在上述配置操作后追加如下内容
->> `account required pam_access.so`
-
-（3）创建文件 `/etc/security/access.conf`，在文件中添加如下内容
->> `+:whistle:ALL`
->> `-:ALL:ALL`
 
 ## FAQ
 

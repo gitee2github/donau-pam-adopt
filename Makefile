@@ -18,4 +18,4 @@ clean:
 	$(RM) *.o $(TAG)
 
 install:
-	if [ -d /lib64/security ]; then \cp -p $(TAG) /lib64/security; fi;
+	if [ -d /lib64/security ]; then chown root:root $(TAG); chmod 500 $(TAG); \cp -p $(TAG) /lib64/security; fi;
