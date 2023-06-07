@@ -19,3 +19,4 @@ clean:
 
 install:
 	if [ -d /lib64/security ]; then chown root:root $(TAG); chmod 500 $(TAG); \cp -p $(TAG) /lib64/security; fi;
+	if [ -d /lib/aarch64-linux-gnu/security ]; then chown root:root $(TAG); chmod 500 $(TAG); \cp -p $(TAG) /lib/aarch64-linux-gnu/security; fi;
