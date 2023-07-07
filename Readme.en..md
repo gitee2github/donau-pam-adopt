@@ -13,7 +13,7 @@
 >>Run `make install`
 
 （2）Method 2：
->>Copy **pam_donau_adopt.so** to `/lib64/security/` ， `/lib/security/`， or a user-specified path.
+>>Copy **pam_donau_adopt.so** to `/lib64/security/`， `/lib/security/`， or a user-specified path.
 >
 >>Change the file permission to **500**.
 >
@@ -28,7 +28,7 @@
 >> `-account    required    pam_donau_adopt.so log_level=debug donau_agent_socket=/tmp/batch/4230533106/.socket/agent.socket`
 
 ### Note:
->*- log_level*: log level of this component，The **debug** level outputs all logs, Other levels record only error logs.
+>*- log_level*: log level of this component. The **debug** level outputs all logs, other levels record only error logs.
 > Logs are recorded in **/var/log/secure** and **/var/log/message**.
 
 >*- donau_agent_socket*: socket file path of the Donau Agent service. Set the parameter to the actual path of the service.
@@ -42,7 +42,7 @@ The following error message may be displayed during compilation and build:
 
 __Solution__
 
-The error occurs because the compilation environment does not have the dependent component  `libpam` for PAM development.
+The error occurs because the compilation environment does not have the dependent component `libpam` for PAM development.
 
 1. Install the component.
 
@@ -54,6 +54,6 @@ The error occurs because the compilation environment does not have the dependent
 
 >> `yum install pam-devel`
 
-2. Check whether the missing header file has been installed in `/usr/include/security`:
+2. Check whether the missing header file has been installed in `/usr/include/security`.
 
 >> `ls -a /usr/include/security`
