@@ -5,6 +5,7 @@
 ### 编译
 
 >>从openEuler社区下载 **pam_donau_adopt** 源文件，并存放在独立目录下
+
 >>进入源文件目录，运行 `make clean;make`
 
 ### 安装
